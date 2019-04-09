@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # Clone laravel app
-git clone https://github.com/laravel/laravel.git ${1:-laravella}
+git clone https://github.com/laravel/laravel.git ${1:-laravel}
 
 # Mount the directories that you will need for your Laravel project and avoid the overhead of installing Composer globally
 cd ${1:-laravel}
