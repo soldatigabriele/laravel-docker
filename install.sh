@@ -17,6 +17,13 @@ git clone https://github.com/laravel/laravel.git ${DIRECTORY:-laravel}
 cd ${DIRECTORY:-laravel}
 docker run --rm -v $(pwd):/app composer install
 
+cd .. && sudo chown -R $USER ${DIRECTORY:-laravel}
+
+cp Dockerfile ${DIRECTORY:-laravel}/Dockerfile
+cp docker-compose.yml ${DIRECTORY:-laravel}/docker-compose.yml
+
+
+
 
 
 
