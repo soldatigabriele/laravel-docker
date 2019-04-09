@@ -29,6 +29,8 @@ mkdir -p ${DIRECTORY:-laravel}/php && cp php.ini ${DIRECTORY:-laravel}/php/php.i
 
 cp .env ${DIRECTORY:-laravel}/.env
 
+# Move in the directory again
+cd ${DIRECTORY:-laravel}
 docker-compose up -d
 docker-compose exec app php artisan key:generate
 docker-compose exec app php artisan config:cache
