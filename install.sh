@@ -25,8 +25,13 @@ cp docker-compose.yml ${DIRECTORY:-laravel}/docker-compose.yml
 
 mkdir -p ${DIRECTORY:-laravel}/nginx/conf.d && cp app.conf ${DIRECTORY:-laravel}/nginx/conf.d/app.conf
 mkdir -p ${DIRECTORY:-laravel}/mysql && cp my.cnf ${DIRECTORY:-laravel}/mysql/my.cnf
+mkdir -p ${DIRECTORY:-laravel}/php && cp php.ini ${DIRECTORY:-laravel}/php/php.ini
 
+cp .env ${DIRECTORY:-laravel}/.env
 
+docker-compose up -d
+docker-compose exec app php artisan key:generate
+docker-compose exec app php artisan config:cache
 
 
 
